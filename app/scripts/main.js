@@ -1,1 +1,5 @@
-console.log('The Iron Yard Rocks');
+var List = function(options) {
+	optiona = options || {};
+	this.name = options.name;
+	this.time = options.time;
+};
