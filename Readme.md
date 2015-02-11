@@ -6,25 +6,16 @@ var data = { nameinfo: [
       {username: "ed", firstName: "Ed", lastName: "Smith", email: "edsmith2@gmail.com"},
     ]};
 
-<div class="todolist">My To-Do List
-            <ul class="list">
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-        </div> 
+var  num1, num2, sum, calculate;
+    num1 = document.getElementById('num_one');
+    num2 = document.getElementById('num_two');
+    x = Number('num1').value;
+    y = Number('num2').value;
+    calculate = document.getElementById('calculateBtn');
+  
 
-
-
-        var menu = {
-    "breakfast": [
-        {
-        "id": 1,
-        "item": "Bagel & Egg",
-        "price": 2,
-        "description": "A Bagel and an Egg",
-        "local fav": 0,
-        "low sodium": 1,
-        "under 500 cals": 1
-        },
+    calculate.onclick = function () {
+    sum = x + y;
+    sum.innerHTML = 'calculateBtn';
+    answer=sum.innerHTML;
+    

@@ -1,19 +1,14 @@
 
 
-var ToDo = [ 'name', 'color', 'status', 'engine', 'tires'];
 
 
 
 
-var  = function (options) {
-	 
-	 beforeEach(function() {
-	 	todo = new ToDO;
-	 });
+var ToDo  = function (options) {
      
 
  	options = options || {};
-  		this.name = options.name || 'Ford Escape';
+  	this.name = options.name || 'Ford Escape';
 		this.color = options.color || 'grey';
 		this.status = 'dirty';
   			this.wash = function () {
@@ -27,4 +22,10 @@ var  = function (options) {
   			this.addAir = function () {
   			this.tires = 'good';
   			};
+
+ 
+
+
 };
+
+//document.getElementById("vehicle").//
