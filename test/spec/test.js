@@ -14,14 +14,15 @@
 //*to-do list
 
 
-var cartodo;
+var ToDo;
 
-describe('CarToDo object', function() {
+
+describe('ToDo object', function() {
 
 	describe('Creating a new todo list', function () {
 
    beforeEach(function(){
-     cartodo = new CarToDo();
+     todo = new ToDo();
     });
 
 
@@ -29,42 +30,45 @@ describe('CarToDo object', function() {
 
 
 
-	it('should be an instance of CarToDo', function() {
-		expect(cartodo).to.be.an.instanceof(CarToDo);
+	it('should be an instance of ToDo', function() {
+		expect(todo).to.be.an.instanceof(ToDo);
 	});
 
+  it('should have a default name', function () {
+    expect(todo.name).to.equal('Ford Escape');
+    });
+
 	it('should have a default color', function () {
-     expect(cartodo.color).to.equal('grey');
+     expect(todo.color).to.equal('grey');
     });
 
 	it('should have a status that is a string', function () {
-     expect(cartodo).to.have.property('status');
+     expect(todo.status).to.have.property('status');
     });
 
 
 	it('should be dirty by default', function () {
-    expect(cartodo.status).to.equal('dirty');
+    expect(todo.status).to.equal('dirty');
     });
 
 
-
 	it('should be clean after I perform the task', function () {
-     expect(cartodo.status).to.equal('dirty');
-     cartodo.wash();
-      expect(cartodo.status).to.equal('clean');
+     expect(todo.status).to.equal('dirty');
+     todo.wash();
+      expect(todo.status).to.equal('clean');
     });
 
 
   it('should run better after I perform the task', function () {
-    expect(cartodo.engine).to.equal('fair')
-    cartodo.tuneup();
-    expect(cartodo.engine).to.equal('good');
+    expect(todo.engine).to.equal('fair')
+    todo.tuneup();
+    expect(todo.engine).to.equal('good');
     });
   
   it('should ride better after I perform the task', function () {
-    expect(cartodo.tires).to.equal('low');
-    cartodo.addAir();
-    expect(cartodo.tires).to.equal('good');
+    expect(todo.tires).to.equal('low');
+    todo.addAir();
+    expect(todo.tires).to.equal('good');
     }); 
 
   });
