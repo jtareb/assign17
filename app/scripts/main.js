@@ -14,6 +14,7 @@ var allTodos = [];
 //variables//
 
 var name,
+    taskinstance,
     tdList = $('#todoList'),
     layout = $('#addTodo'),
     taskTemplate = $('#todoTemp').html(),
@@ -76,10 +77,10 @@ var name,
   name = $(this).find('#text').val();
 
 //create a new todo//
-  Occurrence = new ToDo(taskname);
+  taskinstance = new ToDo(name);
 
 //run the function addTodo//
-list.addTodo(occurrence);
+list.addTodo(taskinstance);
 
 //clear the form//
 this.reset();
