@@ -6,33 +6,32 @@
 
 
 //main collection//
-list.allTodos = [];
+var allTodos = [];
 
 
 
 
 //variables//
 
-var doWhat
-    Occurrence
-    tdlist = $('#todoList'),
+var name,
+    tdList = $('#todoList'),
     layout = $('#addTodo'),
     taskTemplate = $('#todoTemp').html(),
-    taskTemplateFunc = _.template(todoTemplate);
+    taskTemplateFunc = _.template(taskTemplate);
 
       
 
 
 //main constructor//
 
-   list.ToDo  = function (options) {
+   var ToDo  = function (options) {
      
 
  	  options = options || {};
   	
-    this.name = options.name || 'Ford Escape';
-		this.color = options.color || 'grey';
-		
+    //this.name = options.name || 'Ford Escape';
+		//this.color = options.color || 'grey';
+		  this.task = name || "";
         this.status = 'dirty';
   			this.wash = function () {
    			this.status = 'clean';
@@ -57,10 +56,16 @@ var doWhat
 
 
 //add function//
-    list.addTodo = function (task) {
-    list.allTodos.push(task);
+  var addTodo = function (task) {
+    allTodos.push(task);
     tdlist.append(taskTemplateFunc(task));
+        
+
+
   };
+
+
+
 
 //add #addtodo//
   layout.on('submit', function (event) {
@@ -68,10 +73,10 @@ var doWhat
 
 
 //grab text/
-  doWhat = $(this).find('#text').val();
+  name = $(this).find('#text').val();
 
 //create a new todo//
-  Occurrence = new app.ToDo(taskname);
+  Occurrence = new ToDo(taskname);
 
 //run the function addTodo//
 list.addTodo(occurrence);
@@ -83,10 +88,10 @@ this.reset();
 
 //create click event
 
-tdlist.on('click', 'li', function (event) {
+  tdList.on('click', 'li', function (event) {
       event.preventDefault();
 
-      var thisTask = event target;
+      var thisTask = even.target;
       var thisTaskId = Number(thisTask.id);
 
       var thisOccurrence = _.findWhere(app.allTodos, {
@@ -101,7 +106,7 @@ tdlist.on('click', 'li', function (event) {
 
 
 
-}()):
+}());
 
 
 
