@@ -1,21 +1,80 @@
 ## Yo, I'm a Readme
 
-You should probably update me so people looking at your code have an idea what it is being used for :)
-var data = { nameinfo: [
-      {username: "john", firstName: "John", lastName: "Albritton", email: "jtareb1@gmail.com" },
-      {username: "ed", firstName: "Ed", lastName: "Smith", email: "edsmith2@gmail.com"},
-    ]};
-
-var  num1, num2, sum, calculate;
-    num1 = document.getElementById('num_one');
-    num2 = document.getElementById('num_two');
-    x = Number('num1').value;
-    y = Number('num2').value;
-    calculate = document.getElementById('calculateBtn');
   
+(function () {
 
-    calculate.onclick = function () {
-    sum = x + y;
-    sum.innerHTML = 'calculateBtn';
-    answer=sum.innerHTML;
-    
+  'use strict';
+
+  var taskname, 
+      taskinstance,
+      todoArea = $('#todoList'),
+      todoForm = $('#addTodo'),
+      todoTemplate = $('#todoTemp').html(),
+      todoTemplateFunc = _.template(todoTemplate);
+
+ 
+
+  // Main Collection
+  app.allTodos = [];
+
+  // Main Constructor
+  app.ToDo = function (taskName) {
+    this.task = taskName || "";
+    this.status = "incomplete";
+    this.id = _.random(0, 9999);
+    this.toggleStatus = function () {
+      if (this.status === 'incomplete') {
+        this.status = 'complete';
+      } else {
+        this.status = 'incomplete';
+      }
+    }
+  }
+
+  // Add Function
+  app.addTodo = function (task) {
+    app.allTodos.push(task);
+    todoArea.prepend(todoTemplateFunc(task));
+  };
+
+  // Add Todo (from Form)
+  // Submit Event Watcher
+  todoForm.on('submit', function (event) {
+    event.preventDefault();
+
+    // Grab text from my input
+    taskname = $(this).find('#text').val();
+
+    // Create a new Todo
+    taskinstance = new app.ToDo(taskname);
+
+    // Run the function addTodo
+    app.addTodo(taskinstance);
+
+    // Clear the form
+    this.reset();
+  });
+
+  // Create click event for toggleing todos
+  todoArea.on('click', 'li', function (event) {
+    event.preventDefault();
+
+    var thisTask = event.target;
+    var thisTaskID = Number(thisTask.id);
+
+    var thisTaskInstance = _.findWhere(app.allTodos, { id: thisTaskID });
+
+    thisTaskInstance.toggleStatus();
+
+    $(thisTask).removeClass().addClass(thisTaskInstance.status);
+
+
+  });
+
+
+
+
+
+}());
+Status API Training Shop Blog About
+© 2015 GitHub, Inc. Terms Privacy Security Contact

@@ -77,7 +77,20 @@ describe('ToDo object', function() {
 });
 
 
+//*describe toggling todos incomplete/complete
 
+//describe ('Toggling Todos Imcomplete/complete' function () {
+  //it ('should be able to toggle', function() {
+  //expect(todo.status).to.equal('incmplete');
+  //todo.toggleStatus();
+  //expect (todo.status).to.equal)'complete');
+  //todo.toggleStatus();
+  //expect('todo.toggleStatus').to.equal('incomplete');
+
+
+
+
+  
 	
 
 

@@ -22,14 +22,18 @@
     <!-- endbuild -->
   </head>
   <body>
-        <div class="todo">My To-Do List
-            <ul id="vehicle" class="list">
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-        </div> 
+        <div class="container" id="main">
+            <h1>Vehicle Maintenence to-do list</h1>
+                <form id="addTodo">
+                    <input id="text" paceholder="xyzw" value=""/>
+                </form>
+                <ul id="todolist"></ul>
+            </div>
+
+
+        <script type="text/template" id="todoTemp">
+            <li id="<%= id %>" class="<%= status %>"><%= task %></li>
+        </script>
         
             
 
