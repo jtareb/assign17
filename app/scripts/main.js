@@ -17,10 +17,11 @@ var taskname,
     tdList = $('#todoList'),
     layoutForm = $('#addTodo'),
     taskTemplate = $('#todoTemp').html(),
-    taskTemplateFunc = _.template(taskTemplate);
+    taskTemplateFunc = _.template(taskTemplate),
+    toggleAll = $('#toggle-all');
 
 //main collection//
-var allTodos = [];    
+var allTodos  = [];    
 
       
 
