@@ -46,13 +46,8 @@ var allTodos  = [];
   var addTodo = function (task) {
     allTodos.push(task);
     tdList.append(taskTemplateFunc(task));
-        
-
 
   };
-
-
-
 
 //add #addtodo//
   layoutForm.on('submit', function (event) {
@@ -60,13 +55,10 @@ var allTodos  = [];
       //grab text/
       taskname = $(this).find('#text').val();
 
-
       //create a new todo//
       taskinstance = new ToDo(taskname);
-
       //run the function addTodo//
       addTodo(taskinstance);
-
   //clear the form//
   this.reset();
 
@@ -77,7 +69,7 @@ var allTodos  = [];
   tdList.on('click', 'li', function (event) {
       event.preventDefault();
 
-      var thisTask = even.target;
+      var thisTask = event.target;
      
 
       var thisTaskInstance = _.findWhere(app.allTodos, {
@@ -89,10 +81,11 @@ var allTodos  = [];
 
       });
 
+//need an onclick after the tdList.on to generate the completion of the task in the array//
 
 
 
-//});
+
 
 
 
