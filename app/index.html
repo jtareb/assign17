@@ -22,23 +22,24 @@
     <!-- endbuild -->
   </head>
   <body>
-        <div class="container" id="main">
+        <div class="container" >
             <h1>Vehicle Maintenence to-do list</h1>
                 <form id="addTodo">
-                    <input id="text" placeholder="xyzw" value=""/>
+                    <input id="text" value=""/>
                 </form>
-                <ul id="todolist"></ul>
-        </div>   
+            <ul id="todoList"></ul>
+          
          <script type="text/template" id="todoTemp">
            
-            <li id="<%= id %>" class="<%= status %>"><%= task %></li>
+            <li class="<%= status %>"><%= task %></li>
         </script>
-        
+        </div>
             
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
-   
+    
+
     <script src="../bower_components/jquery/dist/jquery.js"></script>
     <script src="../bower_components/underscore/underscore.js"></script>
     <!-- endbower -->

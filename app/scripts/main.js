@@ -1,65 +1,50 @@
-(function () {
+//*(function () {
 
   'use strict';
 
 
 
 
-//main collection//
-var allTodos = [];
 
+ 
 
 
 
 //variables//
 
-var name,
+var taskname,
     taskinstance,
     tdList = $('#todoList'),
-    layout = $('#addTodo'),
+    layoutForm = $('#addTodo'),
     taskTemplate = $('#todoTemp').html(),
     taskTemplateFunc = _.template(taskTemplate);
+
+//main collection//
+var allTodos = [];    
 
       
 
 
 //main constructor//
 
-   var ToDo  = function (options) {
-     
-
- 	  options = options || {};
-  	
-    //this.name = options.name || 'Ford Escape';
-		//this.color = options.color || 'grey';
-		  this.task = name || "";
-        this.status = 'dirty';
-  			this.wash = function () {
-   			this.status = 'clean';
-   		};
-   		this.engine = 'fair';
-   			this.tuneup = function () {
-   			this.engine = 'good';
-   		};
-  		this.tires = 'low';
-  			this.addAir = function () {
-  			this.tires = 'good';
-  		};
+   var ToDo  = function (taskName) {
+      	  
+		   this.task = taskName || "";
+       this.status = "pending";
         this.toggleStatus = function () {
-        if (this.status === 'incomplete') {
-        this.status = 'complete';
-      } else {
-        this.status = 'incomplete';
+          if (this.status === 'pending') {
+          this.status = 'complete';
+          } else {
+          this.status = 'pending';
       }
     }
   }
- 
-
+     
 
 //add function//
   var addTodo = function (task) {
     allTodos.push(task);
-    tdlist.append(taskTemplateFunc(task));
+    tdList.append(taskTemplateFunc(task));
         
 
 
@@ -69,21 +54,20 @@ var name,
 
 
 //add #addtodo//
-  layout.on('submit', function (event) {
+  layoutForm.on('submit', function (event) {
     event.preventDefault();
+      //grab text/
+      taskname = $(this).find('#text').val();
 
 
-//grab text/
-  name = $(this).find('#text').val();
+      //create a new todo//
+      taskinstance = new ToDo(taskname);
 
-//create a new todo//
-  taskinstance = new ToDo(name);
+      //run the function addTodo//
+      addTodo(taskinstance);
 
-//run the function addTodo//
-list.addTodo(taskinstance);
-
-//clear the form//
-this.reset();
+  //clear the form//
+  this.reset();
 
 });
 
@@ -93,21 +77,21 @@ this.reset();
       event.preventDefault();
 
       var thisTask = even.target;
-      var thisTaskId = Number(thisTask.id);
+     
 
-      var thisOccurrence = _.findWhere(app.allTodos, {
+      var thisTaskInstance = _.findWhere(app.allTodos, {
         id: thisTaskID});
 
-      thisOccurrence.toggleStatus();
+      thisTaskInstance.toggleStatus();
 
-      $(thisTask).removeClass().addClass(thisOccurrence.status);
+      $(thisTask).removeClass().addClass(thisTaskInstance.status);
 
       });
 
 
 
 
-}());
+//});
 
 
 
