@@ -34,17 +34,13 @@ describe('ToDo object', function() {
 		expect(todo).to.be.an.instanceof(ToDo);
 	});
 
-  it('should have a default name', function () {
-    expect(todo.name).to.equal('Ford Escape');
+  it('should have a default task', function () {
+    expect(todo.name).to.equal(taskname);
     });
 
-	it('should have a default color', function () {
-     expect(todo.color).to.equal('grey');
+	it('should have a default status', function () {
+     expect(todo.color).to.equal('pending');
     });
-
-	//*it('should have a status that is a string', function () {
-   //  expect(todo.status).to.have.property('status');
-   // });
 
 
 	it('should be dirty by default', function () {
