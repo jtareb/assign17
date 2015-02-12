@@ -27,7 +27,7 @@ describe('ToDo object', function() {
 
 
 	
-
+var taskname
 
 
 	it('should be an instance of ToDo', function() {
@@ -35,23 +35,18 @@ describe('ToDo object', function() {
 	});
 
   it('should have a default task', function () {
-    expect(todo.name).to.equal(taskname);
+    expect(todo.task).to.equal("");
     });
 
 	it('should have a default status', function () {
-     expect(todo.color).to.equal('pending');
+     expect(todo.status).to.equal('pending');
     });
 
 
-	it('should be dirty by default', function () {
-    expect(todo.status).to.equal('dirty');
-    });
-
-
-	it('should be clean after I perform the task', function () {
-     expect(todo.status).to.equal('dirty');
+	it('should be complete after I perform the task', function () {
+     expect(todo.status).to.equal('pending');
      todo.wash();
-      expect(todo.status).to.equal('clean');
+      expect(todo.status).to.equal('complete');
     });
 
 

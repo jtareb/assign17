@@ -1,30 +1,99 @@
+//*(function () {
+
+  'use strict';
 
 
-var ToDo = [ 'name', 'color', 'status', 'engine', 'tires'];
 
 
 
+ 
 
-var  = function (options) {
-	 
-	 beforeEach(function() {
-	 	todo = new ToDO;
-	 });
+
+
+//variables//
+
+var taskname,
+    taskinstance,
+    tdList = $('#todoList'),
+    layoutForm = $('#addTodo'),
+    taskTemplate = $('#todoTemp').html(),
+    taskTemplateFunc = _.template(taskTemplate),
+    toggleAll = $('#toggle-all');
+
+//main collection//
+var allTodos  = [];    
+
+      
+
+
+//main constructor//
+
+   var ToDo  = function (taskName) {
+      	  
+		   this.task = taskName || "";
+       this.status = "pending";
+        this.toggleStatus = function () {
+          if (this.status === 'pending') {
+          this.status = 'complete';
+          } else {
+          this.status = 'pending';
+      }
+    }
+  }
      
 
- 	options = options || {};
-  		this.name = options.name || 'Ford Escape';
-		this.color = options.color || 'grey';
-		this.status = 'dirty';
-  			this.wash = function () {
-   			this.status = 'clean';
-   		};
-   		this.engine = 'fair';
-   			this.tuneup = function () {
-   			this.engine = 'good';
-   		};
-  		this.tires = 'low';
-  			this.addAir = function () {
-  			this.tires = 'good';
-  			};
-};
+//add function//
+  var addTodo = function (task) {
+    allTodos.push(task);
+    tdList.append(taskTemplateFunc(task));
+        
+
+
+  };
+
+
+
+
+//add #addtodo//
+  layoutForm.on('submit', function (event) {
+    event.preventDefault();
+      //grab text/
+      taskname = $(this).find('#text').val();
+
+
+      //create a new todo//
+      taskinstance = new ToDo(taskname);
+
+      //run the function addTodo//
+      addTodo(taskinstance);
+
+  //clear the form//
+  this.reset();
+
+});
+
+//create click event
+
+  tdList.on('click', 'li', function (event) {
+      event.preventDefault();
+
+      var thisTask = even.target;
+     
+
+      var thisTaskInstance = _.findWhere(app.allTodos, {
+        id: thisTaskID});
+
+      thisTaskInstance.toggleStatus();
+
+      $(thisTask).removeClass().addClass(thisTaskInstance.status);
+
+      });
+
+
+
+
+//});
+
+
+
+
